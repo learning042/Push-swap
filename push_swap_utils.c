@@ -6,13 +6,13 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:52:21 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/05/23 16:22:04 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/05/28 12:13:03 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	rem(int a, int b)
+int	mod(int a, int b)
 {
 	return ((a % b + b) % b);
 }

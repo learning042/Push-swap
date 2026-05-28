@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:20:15 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/05/12 17:45:41 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/05/28 12:09:53 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	swap_top(t_stack *s)
 	s_max_size = s->max_size;
 	s_top = s->top;
 	s_array = s->array;
-	swap_ints(&s_array[s_top], &s_array[rem(s_top + 1, s_max_size)]);
+	swap_ints(&s_array[s_top], &s_array[mod(s_top + 1, s_max_size)]);
 	return ;
 }
 

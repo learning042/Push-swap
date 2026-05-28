@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:46:04 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/05/12 17:58:22 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/05/28 12:22:23 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	rev_rotate(t_stack *s)
 {
-	s->array[rem(s->top - 1, s->max_size)] = s->array[rem(s->top + s-> curr_size - 1, s->max_size)];
-	s->top = rem(s->top - 1, s->max_size);
+	s->array[mod(s->top - 1, s->max_size)] = s->array[mod(s->top + s-> curr_size - 1, s->max_size)];
+	s->top = mod(s->top - 1, s->max_size);
 	return ;
 }
 

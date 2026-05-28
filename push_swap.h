@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 15:40:30 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/05/23 16:42:27 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/05/28 12:08:41 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_stack	*create_stack(int *nbrs, size_t nbr_count, size_t size);
 void	print_stack(t_stack *s);
 void	free_stack(t_stack *s);
 int		access_stack(t_stack *s, size_t i);
-int		rem(int a, int b);
+int		mod(int a, int b);
 void	swap_a(t_stack *a);
 void	swap_b(t_stack *b);
 void	swap_both(t_stack *a, t_stack *b);

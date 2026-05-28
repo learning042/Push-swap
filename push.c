@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:45:08 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/05/12 17:45:21 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/05/28 12:07:04 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ static void	push(t_stack *a, t_stack *b)
 {
 	if (a->curr_size == 0)
 		return ;
-	b->array[rem(b->top - 1, b->max_size)] = a->array[a->top];
+	b->array[mod(b->top - 1, b->max_size)] = a->array[a->top];
 	a->curr_size--;
 	b->curr_size++;
-	a->top = rem(a->top + 1, a->max_size);
-	b->top = rem(b->top - 1, b->max_size);
+	a->top = mod(a->top + 1, a->max_size);
+	b->top = mod(b->top - 1, b->max_size);
 	return ;
 }
 

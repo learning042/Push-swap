@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 15:40:30 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/05/28 12:08:41 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:09:24 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ typedef struct s_stack
 }	t_stack;
 
 t_stack	*create_stack(int *nbrs, size_t nbr_count, size_t size);
+void	init_stack(t_stack *s, int *arr);
 void	print_stack(t_stack *s);
 void	free_stack(t_stack *s);
 int		access_stack(t_stack *s, size_t i);
+void	edit_stack(t_stack *s, size_t i, int n);
 int		mod(int a, int b);
 void	swap_a(t_stack *a);
 void	swap_b(t_stack *b);
@@ -54,6 +56,8 @@ void	rev_rotate_b(t_stack *b);
 void	rev_rotate_both(t_stack *a, t_stack *b);
 void	insertion_sort(t_stack *a, t_stack *b, size_t *move_count);
 void	print_move_count(size_t *mv);
+void	radix_sort(t_stack *a, t_stack *b, size_t *move_count);
+void	rank_stack(t_stack *s);
 int		ft_atoi(const char *nptr);
 int		is_sorted(t_stack *s);
 

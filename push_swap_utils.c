@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:52:21 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/05/28 12:13:03 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:02:45 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_stack	*create_stack(int *nbrs, size_t nbr_count, size_t size)
 {
 	t_stack	*new;
 	int		*new_array;
-	size_t	i;
 
 	new_array = malloc(sizeof(int) * size);
 	if (new_array == NULL)
@@ -29,17 +28,25 @@ t_stack	*create_stack(int *nbrs, size_t nbr_count, size_t size)
 	new = malloc(sizeof(t_stack));
 	if (new == NULL)
 		return (NULL);
-	i = 0;
-	while (i < nbr_count)
-	{
-		new_array[i] = nbrs[i];
-		i++;
-	}
 	new->array = new_array;
 	new->top = 0;
 	new->curr_size = nbr_count;
 	new->max_size = size;
+	init_stack(new, nbrs);
 	return (new);
+}
+
+void	init_stack(t_stack *s, int *arr)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < s->curr_size)
+	{
+		edit_stack(s, i, arr[i]);
+		i++;
+	}
+	return ;
 }
 
 int	access_stack(t_stack *s, size_t i)
@@ -49,6 +56,17 @@ int	access_stack(t_stack *s, size_t i)
 	return (s->array[s->top + i]);
 }
 
+void	edit_stack(t_stack *s, size_t i, int n)
+{
+	if (s->top + i >= s-> max_size)
+	{
+		s->array[s->top - (s->max_size - i)] = n;
+		return ;
+	}
+	s->array[s->top + i] = n;
+	return ;
+}
+	
 void	print_stack(t_stack *s)
 {
 	size_t	i;

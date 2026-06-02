@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 16:11:49 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/05/23 16:43:45 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/02 13:35:26 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,16 @@ int	is_sorted(t_stack *s)
 	}
 	return (1);
 }
+/*
+int	main(int argc, char **argv)
+{
+	int		*nbrs;
+	size_t	nbr_count;
+	t_stack 	*a;
 
-
-
-
+	nbr_count = argc - 1;
+	nbrs = malloc(sizeof(int) * nbr_count);
+	while (--argc)
+		nbrs[argc - 1] = ft_atoi(argv[argc]);
+	a = create_stack(nbrs, nbr_count, nbr_count);
+*/

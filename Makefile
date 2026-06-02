@@ -19,7 +19,9 @@ SRCS = push_swap_utils.c \
        ft_atoi.c \
        push_swap.c \
        radix_sort.c \
-       checker.c
+       checker.c \
+       bucket_sort.c \
+       rev_insertion_sort.c
 
 OBJS = $(SRCS:%.c=%.o)
 

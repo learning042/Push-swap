@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 15:40:30 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/01 18:09:24 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/02 17:39:17 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ void	radix_sort(t_stack *a, t_stack *b, size_t *move_count);
 void	rank_stack(t_stack *s);
 int		ft_atoi(const char *nptr);
 int		is_sorted(t_stack *s);
+void	bucket_sort(t_stack *a, t_stack *b, size_t *move_count);
+void	rev_insertion_sort(t_stack *a, t_stack *b, size_t *move_count);
 
 #endif

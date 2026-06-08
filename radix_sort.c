@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 14:16:46 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/01 18:38:48 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:41:53 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	rank_stack(t_stack *s)
 	init_stack(s, rank_array);
 }
 
-void	radix_sort(t_stack *a, t_stack *b, size_t *move_count)
+void	radix_sort(t_stack *a, t_stack *b, t_move_count *move_count)
 {
 
 	int	i;
@@ -73,22 +73,13 @@ void	radix_sort(t_stack *a, t_stack *b, size_t *move_count)
 		while (j < size)
 		{
 			if ((access_stack(a, 0) >> i) & 1)
-			{
-				rotate_a(a);
-				move_count[RA]++;
-			}
+				rotate_a(a, move_count);
 			else
-			{
-				push_b(a, b);
-				move_count[PB]++;
-			}
+				push_b(a, b, move_count);
 			++j;
 		}
 		while (b->curr_size)
-		{
-			push_a(a, b);
-			move_count[PA]++;
-		}
+			push_a(a, b, move_count);
 		++i;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 17:17:06 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/02 17:47:13 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:40:48 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static size_t	find_max(t_stack *s)
 	return (temp_max);
 }
 
-static void	push_max(t_stack *a, t_stack *b, size_t *move_count)
+static void	push_max(t_stack *a, t_stack *b, t_move_count *move_count)
 {
 	size_t	max;
 	size_t	i;
@@ -41,8 +41,7 @@ static void	push_max(t_stack *a, t_stack *b, size_t *move_count)
 		i = 0;
 		while (i < max)
 		{
-			rotate_b(b);
-			move_count[RB]++;
+			rotate_b(b, move_count);
 			i++;
 		}
 	}
@@ -51,20 +50,18 @@ static void	push_max(t_stack *a, t_stack *b, size_t *move_count)
 		i = b->curr_size - 1;
 		while (i >= max)
 		{
-			rev_rotate_b(b);
-			move_count[RRB]++;
+			rev_rotate_b(b, move_count);
 			i--;
 		}
 	}
-	push_a(a, b);
-	move_count[PA]++;
+	push_a(a, b, move_count);
 	return ;
 }
 
-void	rev_insertion_sort(t_stack *a, t_stack *b, size_t *move_count)
+void	rev_insertion_sort(t_stack *a, t_stack *b, t_move_count *move_count)
 {
 	while (b->curr_size != 1)
 		push_max(a, b, move_count);
-	push_a(a, b);
+	push_a(a, b, move_count);
 	return ;
 }

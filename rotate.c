@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:36:03 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/05/28 12:09:12 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:50:00 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,30 @@ static void	rotate(t_stack *s)
 	return ;
 }
 
-void	rotate_a(t_stack *a)
+void	rotate_a(t_stack *a, t_move_count *m)
 {
 	rotate(a);
+	m->ra++;
+	m->total++;
 	printf("ra\n");
 	return ;
 }
 
-void	rotate_b(t_stack *b)
+void	rotate_b(t_stack *b, t_move_count *m)
 {
 	rotate(b);
+	m->rb++;
+	m->total++;
 	printf("rb\n");
 	return ;
 }
 
-void	rotate_both(t_stack *a, t_stack *b)
+void	rotate_both(t_stack *a, t_stack *b, t_move_count *m)
 {
 	rotate(a);
 	rotate(b);
+	m->rr++;
+	m->total++;
 	printf("rr\n");
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:45:08 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/05/28 13:06:37 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:56:23 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,20 @@ static void	push(t_stack *a, t_stack *b)
 	return ;
 }
 
-void	push_a(t_stack *a, t_stack *b)
+void	push_a(t_stack *a, t_stack *b, t_move_count *m)
 {
 	push(b, a);
+	m->pa++;
+	m->total++;
 	printf("pa\n");
 	return ;
 }
 
-void	push_b(t_stack *a, t_stack *b)
+void	push_b(t_stack *a, t_stack *b, t_move_count *m)
 {
 	push(a, b);
+	m->pb++;
+	m->total++;
 	printf("pb\n");
 	return ;
 }

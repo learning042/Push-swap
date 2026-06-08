@@ -6,14 +6,12 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 13:58:26 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/02 18:09:22 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:43:30 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//ranks x 
-//ft_sqrt
-//
+
 static size_t	ft_sqrt(size_t num)
 {
 	size_t	i;
@@ -25,13 +23,10 @@ static size_t	ft_sqrt(size_t num)
 			return (i);
 		++i;
 	}
-//	if (i * i - num > num - (i - 1) * (i - 1))
-//		--i;
 	return (i);
 }
-//push_bucket
 
-static void	push_bucket(t_stack *a, t_stack *b, size_t bucket, size_t bucket_size, size_t *move_count)
+static void	push_bucket(t_stack *a, t_stack *b, size_t bucket, size_t bucket_size,t_move_count *move_count)
 {
 	size_t	init_size_a;
 	size_t	j;
@@ -43,20 +38,14 @@ static void	push_bucket(t_stack *a, t_stack *b, size_t bucket, size_t bucket_siz
 	while (j < init_size_a)
 	{
 		if (access_stack(a, 0) / bucket_size == bucket)
-		{
-			push_b(a, b);
-			move_count[PB]++;
-		}
+			push_b(a, b, move_count);
 		else
-		{
-			rotate_a(a);
-			move_count[RA]++;
-		}
+			rotate_a(a, move_count);
 		++j;
 	}
 }
 
-void	bucket_sort(t_stack *a, t_stack *b, size_t *move_count)
+void	bucket_sort(t_stack *a, t_stack *b, t_move_count *move_count)
 {
 	size_t	bucket_size;
 	size_t	bucket;

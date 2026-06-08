@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:48:57 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/02 18:11:35 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/08 16:33:11 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	size_t	nbr_count;
 	t_stack	*a;
 	t_stack	*b;
-	size_t	move_count[11] = {0};
+	t_move_count	move_count = {0};
 
 	nbr_count = argc - 1;
 	nbrs = malloc (sizeof(int) * (argc - 1));
@@ -26,14 +26,15 @@ int	main(int argc, char **argv)
 		nbrs[argc - 1] = ft_atoi(argv[argc]);
 	a = create_stack(nbrs, nbr_count, nbr_count);
 	free(nbrs);
-//	printf("Stack a\n");
-//	print_stack(a);
-//	printf("Stack a status : %d\n", is_sorted(a));
+	printf("Stack a\n");
+	print_stack(a);
+	printf("Stack a status : %d\n", is_sorted(a));
 	b = create_stack(NULL, 0, nbr_count);
-	bucket_sort(a, b, move_count);
-//	print_stack(a);
-//	printf("Stack a status : %d\n", is_sorted(a));
-//	print_move_count(move_count);
+	if (ft_strcmp
+	bucket_sort(a, b, &move_count);
+	print_stack(a);
+	printf("Stack a status : %d\n", is_sorted(a));
+	print_move_count(&move_count);
 	free_stack(a);
 	free_stack(b);
 	return (0);

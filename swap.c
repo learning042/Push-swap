@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:20:15 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/05/28 12:55:37 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:49:44 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,30 @@ static void	swap_top(t_stack *s)
 	return ;
 }
 
-void	swap_a(t_stack *a)
+void	swap_a(t_stack *a, t_move_count *m)
 {
 	swap_top(a);
+	m->sa++;
+	m->total++;
 	printf("sa\n");
 	return ;
 }
 
-void	swap_b(t_stack *b)
+void	swap_b(t_stack *b, t_move_count *m)
 {
 	swap_top(b);
+	m->sb++;
+	m->total++;
 	printf("sb\n");
 	return ;
 }
 
-void	swap_both(t_stack *a, t_stack *b)
+void	swap_both(t_stack *a, t_stack *b, t_move_count *m)
 {
 	swap_top(a);
 	swap_top(b);
+	m->ss++;
+	m->total++;
 	printf("ss\n");
 	return ;
 }

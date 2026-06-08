@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:15:07 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/05/23 16:20:33 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:39:30 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static size_t	find_min(t_stack *s)
 	return (temp_min);
 }
 
-static void	push_min(t_stack *a, t_stack *b, size_t *move_count)
+static void	push_min(t_stack *a, t_stack *b, t_move_count *move_count)
 {
 	size_t	min;
 	size_t	i;
@@ -41,8 +41,7 @@ static void	push_min(t_stack *a, t_stack *b, size_t *move_count)
 		i = 0;
 		while (i < min)
 		{
-			rotate_a(a);
-			move_count[RA]++;
+			rotate_a(a, move_count);
 			i++;
 		}
 	}
@@ -51,24 +50,19 @@ static void	push_min(t_stack *a, t_stack *b, size_t *move_count)
 		i = a->curr_size - 1;
 		while (i >= min)
 		{
-			rev_rotate_a(a);
-			move_count[RRA]++;
+			rev_rotate_a(a, move_count);
 			i--;
 		}
 	}
-	push_b(a, b);
-	move_count[PB]++;
+	push_b(a, b, move_count);
 	return ;
 }
 
-void	insertion_sort(t_stack *a, t_stack *b, size_t *move_count)
+void	insertion_sort(t_stack *a, t_stack *b, t_move_count *move_count)
 {
 	while (a->curr_size != 1)
 		push_min(a, b, move_count);
 	while (b->curr_size != 0)
-	{
-		push_a(a, b);
-		move_count[PA]++;
-	}
+		push_a(a, b, move_count);
 	return ;
 }

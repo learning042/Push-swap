@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:52:21 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/01 18:02:45 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/08 16:13:43 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,22 +86,17 @@ void	free_stack(t_stack *s)
 	free(s);
 }
 
-void	print_move_count(size_t *mv)
+void	print_move_count(t_move_count *m)
 {
 	size_t	total;
 	int		i;
 
 	total = 0;
 	i = 0;
-	while (i < 11)
-	{
-		total += mv[i];
-		i++;
-	}
-	printf("total_ops: %zu\n", total);
+	printf("total_ops: %zu\n", m->total);
 	printf("sa: %zu, sb: %zu, ss: %zu, pa: %zu, pb: %zu\n",
-		mv[0], mv[1], mv[2], mv[3], mv[4]);
+		m->sa, m->sb, m->ss, m->pa, m->pb);
 	printf("ra: %zu, rb: %zu, rr: %zu, rra: %zu, rrb: %zu, rrr: %zu\n",
-		mv[5], mv[6], mv[7], mv[8], mv[9], mv[10]);
+		m->ra, m->rb, m->rr, m->rra, m->rrb, m->rrr);
 	return ;
 }

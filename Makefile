@@ -8,6 +8,8 @@
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
 NAME = push_swap
 SRCS = push_swap_utils.c \
@@ -16,7 +18,6 @@ SRCS = push_swap_utils.c \
        rotate.c \
        rev_rotate.c \
        insertion_sort.c \
-       ft_atoi.c \
        push_swap.c \
        radix_sort.c \
        checker.c \
@@ -25,19 +26,30 @@ SRCS = push_swap_utils.c \
 
 OBJS = $(SRCS:%.c=%.o)
 
+MAKE_LIBFT = $(MAKE) -C $(LIBFT_DIR)
+
 MAIN = main.c
 
 EXEC = $(basename $(MAIN))
 
-all: $(NAME)
+all: $(NAME) $(LIBFT)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
+	rm -rf $(OBJS)
+	$(MAKE_LIBFT) clean
 	
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME) 
+	$(MAKE_LIBFT) fclean
 
 re: fclean all
 

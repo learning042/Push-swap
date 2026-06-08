@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:48:57 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/08 16:33:11 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/08 17:31:10 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int argc, char **argv)
 	print_stack(a);
 	printf("Stack a status : %d\n", is_sorted(a));
 	b = create_stack(NULL, 0, nbr_count);
-	if (ft_strcmp
 	bucket_sort(a, b, &move_count);
 	print_stack(a);
 	printf("Stack a status : %d\n", is_sorted(a));

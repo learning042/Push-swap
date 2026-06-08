@@ -32,10 +32,10 @@ MAIN = main.c
 
 EXEC = $(basename $(MAIN))
 
-all: $(NAME) $(LIBFT)
+all: $(NAME) 
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -L$(LIBFT_DIR) $(OBJS) -o $(NAME) -lft
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)

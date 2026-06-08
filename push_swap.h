@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 15:40:30 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/08 17:32:02 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/08 17:45:06 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,4 @@ void	bucket_sort(t_stack *a, t_stack *b, t_move_count *move_count);
 void	rev_insertion_sort(t_stack *a, t_stack *b, t_move_count *move_count);
 void	insertion_sort(t_stack *a, t_stack *b, t_move_count *move_count);
 void	radix_sort(t_stack *a, t_stack *b, t_move_count *move_count);
-
-// parser utils
-int	ft_strcmp(char *s1, char *s2);
 #endif

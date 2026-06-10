@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:52:21 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/08 16:13:43 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/09 17:34:39 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	edit_stack(t_stack *s, size_t i, int n)
 	s->array[s->top + i] = n;
 	return ;
 }
-	
+
 void	print_stack(t_stack *s)
 {
 	size_t	i;
@@ -88,15 +88,10 @@ void	free_stack(t_stack *s)
 
 void	print_move_count(t_move_count *m)
 {
-	size_t	total;
-	int		i;
-
-	total = 0;
-	i = 0;
-	printf("total_ops: %zu\n", m->total);
-	printf("sa: %zu, sb: %zu, ss: %zu, pa: %zu, pb: %zu\n",
+	ft_printf("[bench] total_ops: %d\n", m->total);
+	ft_printf("[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n",
 		m->sa, m->sb, m->ss, m->pa, m->pb);
-	printf("ra: %zu, rb: %zu, rr: %zu, rra: %zu, rrb: %zu, rrr: %zu\n",
+	ft_printf("[bench] ra: %d, rb: %d, rr: %d, rra: %d, rrb: %d, rrr: %d\n",
 		m->ra, m->rb, m->rr, m->rra, m->rrb, m->rrr);
 	return ;
 }

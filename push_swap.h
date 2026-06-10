@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 15:40:30 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/08 17:45:06 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/09 17:22:43 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <stdio.h>
-# include "libft/libft.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_stack
 {
@@ -25,35 +25,37 @@ typedef struct s_stack
 	size_t	max_size;
 }	t_stack;
 
-typedef enum	e_strategy
+typedef enum e_strategy
 {
 	Simple,
 	Medium,
 	Complex,
-	Adaptative
+	Adaptive
 }	t_strategy;
 
-typedef struct	s_flags
+typedef struct s_bench
 {
-	int	has_flags;
-	int	bench;
+	int			has_bench;
+	int			has_strategy;
+	int			is_adaptive;
+	float	disorder;
 	t_strategy	strategy;
-}	t_flags;
+}	t_bench;
 
-typedef struct	s_move_count
+typedef struct s_move_count
 {
-	size_t	sa;
-	size_t	sb;
-	size_t	ss;
-	size_t	pa;
-	size_t	pb;
-	size_t	ra;
-	size_t	rb;
-	size_t	rr;
-	size_t	rra;
-	size_t	rrb;
-	size_t	rrr;
-	size_t	total;
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
 }	t_move_count;
 
 // movements
@@ -87,4 +89,10 @@ void	bucket_sort(t_stack *a, t_stack *b, t_move_count *move_count);
 void	rev_insertion_sort(t_stack *a, t_stack *b, t_move_count *move_count);
 void	insertion_sort(t_stack *a, t_stack *b, t_move_count *move_count);
 void	radix_sort(t_stack *a, t_stack *b, t_move_count *move_count);
+
+// benchmark
+
+float	compute_disorder(t_stack *s);
+void	print_bench(t_bench *bench, t_move_count *moves);
+void	init_bench(t_stack *s, t_bench *bench);
 #endif

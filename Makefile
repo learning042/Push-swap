@@ -8,8 +8,8 @@
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
+LIBFT_DIR = ft_printf
+LIBFT = $(LIBFT_DIR)/libftprintf.a
 
 NAME = push_swap
 SRCS = push_swap_utils.c \
@@ -22,7 +22,9 @@ SRCS = push_swap_utils.c \
        radix_sort.c \
        checker.c \
        bucket_sort.c \
-       rev_insertion_sort.c
+       rev_insertion_sort.c \
+       disorder.c \
+       bench.c
 
 OBJS = $(SRCS:%.c=%.o)
 
@@ -35,7 +37,7 @@ EXEC = $(basename $(MAIN))
 all: $(NAME) 
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -L$(LIBFT_DIR) $(OBJS) -o $(NAME) -lft
+	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -L$(LIBFT_DIR) $(OBJS) -o $(NAME) -lftprintf
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)

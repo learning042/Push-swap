@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 14:16:46 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/08 15:41:53 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/08 17:51:24 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	num_bits(int num)
 // build a ranked stack
 void	rank_stack(t_stack *s)
 {
-	int	*rank_array;
-	int	rank;
+	int		*rank_array;
+	int		rank;
 	size_t	i;
 	size_t	j;
 
@@ -57,15 +57,14 @@ void	rank_stack(t_stack *s)
 
 void	radix_sort(t_stack *a, t_stack *b, t_move_count *move_count)
 {
-
 	int	i;
 	int	j;
 	int	size;
 	int	bits;
-	
+
 	rank_stack(a);
 	size = a->curr_size;
-      	bits = num_bits(size);
+	bits = num_bits(size);
 	i = 0;
 	while (i < bits)
 	{

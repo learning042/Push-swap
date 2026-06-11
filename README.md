@@ -108,7 +108,7 @@ The time complexity is as follows. In the worst case, pushing the minimum requir
 (1 + 1 + ... [n times]) + (n/2 + (n-1)/2 + ... + 1)
 = n + (1/2)(1 + 2 + ... + n)
 = n + n(n+1)/4
-= O(n²)
+~ O(n²)
 ```
 
 ---

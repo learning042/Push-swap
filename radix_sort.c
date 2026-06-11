@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 14:16:46 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/08 17:51:24 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/11 13:39:52 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	rank_stack(t_stack *s)
 		i++;
 	}
 	init_stack(s, rank_array);
+	free(rank_array);
+	return ;
 }
 
 void	radix_sort(t_stack *a, t_stack *b, t_move_count *move_count)

@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 15:40:30 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/09 17:22:43 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/11 17:48:42 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 # include "ft_printf/ft_printf.h"
 
 typedef struct s_stack
@@ -33,12 +34,18 @@ typedef enum e_strategy
 	Adaptive
 }	t_strategy;
 
+typedef struct s_rational
+{
+	int	num;
+	int	den;
+}	t_rational;
+
 typedef struct s_bench
 {
 	int			has_bench;
 	int			has_strategy;
 	int			is_adaptive;
-	float	disorder;
+	t_rational	disorder;
 	t_strategy	strategy;
 }	t_bench;
 
@@ -71,6 +78,13 @@ void	rev_rotate_a(t_stack *a, t_move_count *m);
 void	rev_rotate_b(t_stack *b, t_move_count *m);
 void	rev_rotate_both(t_stack *a, t_stack *b, t_move_count *m);
 
+// parsing
+
+int	has_duplicate(int *array, size_t len);
+int	safe_atoi(char *str, int *val);
+void	apply_strategy(t_stack *a, t_stack *b, t_move_count *move_count, t_bench bench);
+int	parser(int argc, char **argv, t_bench *bench, t_stack **a, t_stack **b);
+
 // stack utils
 void	print_stack(t_stack *s);
 t_stack	*create_stack(int *nbrs, size_t nbr_count, size_t size);
@@ -81,7 +95,6 @@ void	edit_stack(t_stack *s, size_t i, int n);
 int		mod(int a, int b);
 void	print_move_count(t_move_count *m);
 void	rank_stack(t_stack *s);
-int		ft_atoi(const char *nptr);
 int		is_sorted(t_stack *s);
 
 // algorithms
@@ -92,7 +105,7 @@ void	radix_sort(t_stack *a, t_stack *b, t_move_count *move_count);
 
 // benchmark
 
-float	compute_disorder(t_stack *s);
+t_rational	compute_disorder(t_stack *s);
 void	print_bench(t_bench *bench, t_move_count *moves);
-void	init_bench(t_stack *s, t_bench *bench);
+void	init_bench_disorder(t_stack *s, t_bench *bench);
 #endif

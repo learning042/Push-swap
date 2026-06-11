@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 13:58:26 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/08 18:11:00 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/11 13:41:17 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	push_bucket(t_stack *a, t_stack *b, size_t bucket, t_move_count *mv)
 	size_t	n;
 	size_t	bucket_size;
 
-	bucket_size = ft_sqrt(a->max_size);
+	bucket_size = 2 * ft_sqrt(a->max_size);
 	init_size_a = a->curr_size;
 	j = 0;
 	n = a->max_size;
@@ -53,7 +53,7 @@ void	bucket_sort(t_stack *a, t_stack *b, t_move_count *move_count)
 	size_t	bucket;
 
 	rank_stack(a);
-	bucket_size = ft_sqrt(a->max_size);
+	bucket_size = 2 * ft_sqrt(a->max_size);
 	bucket = 0;
 	while (bucket <= a->max_size / bucket_size)
 	{
@@ -62,11 +62,3 @@ void	bucket_sort(t_stack *a, t_stack *b, t_move_count *move_count)
 	}
 	rev_insertion_sort(a, b, move_count);
 }
-//bucket_sort push_bucket pop everything from b to a	
-/*int	main(void)
-{
-	printf("%i\n", ft_sqrt(10));
-	printf("%i\n", ft_sqrt(50));
-	printf("%i\n", ft_sqrt(400));
-}
-*/

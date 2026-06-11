@@ -7,7 +7,7 @@
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_DIR = ft_printf
 LIBFT = $(LIBFT_DIR)/libftprintf.a
 
@@ -24,7 +24,8 @@ SRCS = push_swap_utils.c \
        bucket_sort.c \
        rev_insertion_sort.c \
        disorder.c \
-       bench.c
+       bench.c \
+       parser.c
 
 OBJS = $(SRCS:%.c=%.o)
 
@@ -55,10 +56,4 @@ fclean: clean
 
 re: fclean all
 
-exec: re
-	./$(NAME)
-
-valgrind: $(NAME)
-	@valgrind ./$(NAME)
-
-.PHONY: all clean fclean re valgrind
+.PHONY: all clean fclean re

@@ -14,8 +14,8 @@ The possible operations in pushswap are listed below:
 |--|--|
 | sa | Swap the first element of stack A with the second |
 | pa | Pop an element from stack B and push it to stack A |
-| ra | Rotate stack A clockwise (shift up all elements by one): the first element becomes the last, and the second element becomes the new first |
-| rra | Rotate stack A counterclockwise (shift down all elements by one): the last element becomes the first, and the second-to-last becomes the new last |
+| ra | Rotate stack A counterclockwise (shift up all elements by one): the first element becomes the last, and the second element becomes the new first |
+| rra | Rotate stack A clockwise (shift down all elements by one): the last element becomes the first, and the second-to-last becomes the new last |
 
 There are also `sb`, `pb`, `rb`, `rrb`, which are analogous to the above but for stack B, as well as `ss`, `rr`, and `rrr`, which are `sa + sb`, `ra + rb`, and `rra + rrb`, respectively.
 

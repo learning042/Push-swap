@@ -1,8 +1,12 @@
-
-#    By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+         #
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tpinto-v <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/04/20 13:31:29 by jlandeir          #+#    #+#              #
-#    Updated: 2026/04/30 12:59:29 by jlandeir         ###   ########.fr        #
+#    Created: 2026/06/12 17:30:25 by tpinto-v          #+#    #+#              #
+#    Updated: 2026/06/12 17:33:15 by tpinto-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +31,7 @@ SRCS = push_swap_utils.c \
        bench.c \
        parser.c
 
-OBJS = $(SRCS:%.c=%.o)
+OBJS = $(SRCS:%.c=%.o)2
 
 MAKE_LIBFT = $(MAKE) -C $(LIBFT_DIR)
 

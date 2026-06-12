@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 16:11:49 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/02 13:35:26 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/12 17:52:24 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@ int	is_sorted(t_stack *s)
 	}
 	return (1);
 }
+
+// Create stack
+// READ operations from stdin until just click(or invalid input, in this case finish and print ERROR!) enter instead of move + enter
+// Store each interation in a buffer
+// Use the movements on the stack a / b
+// IF stack a is sorted and stack b is empty
+	// print OK!
+//ELSE
+	// print KO!
+
 /*
 int	main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 15:39:31 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/11 18:00:27 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/13 18:36:52 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ static void	print_strategy(t_bench *bench)
 
 void	print_bench(t_bench *bench, t_move_count *moves)
 {
-	ft_printf("[bench] disorder:  ");
+	ft_putstr_fd("[bench] disorder:  ", 2);
 	print_disorder(bench->disorder);
-	ft_printf("[bench] strategy: ");
+	ft_putstr_fd("[bench] strategy: ", 2);
 	print_strategy(bench);
 	print_move_count(moves);
 }

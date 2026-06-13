@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 15:40:30 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/13 15:49:22 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/13 19:41:34 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ void	rev_rotate_both(t_stack *a, t_stack *b, t_move_count *m);
 int	has_duplicate(int *array, size_t len);
 int	safe_atoi(char *str, int *val);
 int	ft_strcmp(char *s1, char *s2);
-void	apply_strategy(t_stack *a, t_stack *b, t_move_count *move_count, t_bench bench);
+void	apply_strat(t_stack *a, t_stack *b, t_move_count *move_count, t_bench bench);
 int	build_stacks(int nbr_count, char **nbr_str, t_stack **a, t_stack **b);
-int	parser(int argc, char **argv, t_bench *bench, t_stack **a, t_stack **b);
+int	parser(int argc, char **argv, t_bench *bench, int *first_nbr);
 
 // stack utils
 void	print_stack(t_stack *s);

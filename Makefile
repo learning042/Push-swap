@@ -6,7 +6,7 @@
 #    By: tpinto-v <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/12 17:30:25 by tpinto-v          #+#    #+#              #
-#    Updated: 2026/06/13 16:06:40 by jlandeir         ###   ########.fr        #
+#    Updated: 2026/06/13 18:51:33 by jlandeir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ fclean: clean
 	$(MAKE_LIBFT) fclean
 	$(MAKE_GNL) fclean
 
-re: fclean all
+re: fclean all bonus
 
 bonus: $(NAME_BONUS)
 

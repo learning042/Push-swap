@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 13:48:50 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/13 15:48:41 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/13 19:42:45 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,12 @@ int	safe_atoi(char *str, int *val)
 	int		sign;
 	int		res;
 
+	if (str[0] == '\0')
+		return (-1);
+	if (str[0] == '-' && (str[1] < '0' || str[1] > '9'))
+		return (-1);
 	res = 0;
-	i = (*str == '-');
+	i = (str[0] == '-');
 	sign = 1 - 2 * i;
 	while (str[i] != '\0')
 	{
@@ -114,26 +118,25 @@ static int	is_flag(char *s)
 
 static int	update_bench_flags(char *s, t_bench *bench)
 {
+	t_bench	*b;
+
+	b = bench;
 	if (ft_strcmp(s, "--bench") == 0)
 	{
-		if (bench->has_bench)
+		if (b->has_bench)
 			return (-1);
-		return (bench->has_bench = 1);
+		return (b->has_bench = 1);
 	}
-	if (ft_strcmp(s, "--adaptive") == 0)
-	{
-		if (bench->is_adaptive)
-			return (-1);
-		return (bench->is_adaptive = 1);
-	}
-	if (bench->has_strategy)
+	if (b->has_strategy)
 		return (-1);
+	if (ft_strcmp(s, "--adaptive") == 0)
+		return (b->has_strategy = 1);
 	if (ft_strcmp(s, "--simple") == 0)
-		return (bench->is_adaptive = 0, bench->strategy = Simple, bench->has_strategy = 1);
+		return (b->is_adaptive = 0, b->strategy = Simple, b->has_strategy = 1);
 	if (ft_strcmp(s, "--medium") == 0)
-		return (bench->is_adaptive = 0, bench->strategy = Medium, bench->has_strategy = 1);
+		return (b->is_adaptive = 0, b->strategy = Medium, b->has_strategy = 1);
 	if (ft_strcmp(s, "--complex") == 0)
-		return (bench->is_adaptive = 0, bench->strategy = Complex, bench->has_strategy = 1);
+		return (b->is_adaptive = 0, b->strategy = Complex, b->has_strategy = 1);
 	return (0);
 }
 
@@ -158,16 +161,17 @@ int	build_stacks(int nbr_count, char **nbr_str, t_stack **a, t_stack **b)
 			return (ft_putstr_fd("Error\n", 2), -1);
 		i++;
 	}
+	if (has_duplicate(nbrs, nbr_count))
+		return (ft_putstr_fd("Error\n", 2), -1);
 	*a = create_stack(nbrs, nbr_count, nbr_count);
 	*b = create_stack(NULL, 0, nbr_count);
 	free(nbrs);
 	return (0);
 }
 
-int	parser(int argc, char **argv, t_bench *bench, t_stack **a, t_stack **b)
+int	parser(int argc, char **argv, t_bench *bench, int *first_nbr)
 {
 	int	i;
-	int	nbr_count;
 
 	i = 1;
 	init_bench(bench);
@@ -180,25 +184,25 @@ int	parser(int argc, char **argv, t_bench *bench, t_stack **a, t_stack **b)
 		}
 		i++;
 	}
-	nbr_count = argc - i;
-	return (build_stacks(nbr_count, argv + i, a, b));
+	*first_nbr = i;
+	return (0);
 }
 
-void	apply_strategy(t_stack *a, t_stack *b, t_move_count *move_count, t_bench bench)
+void	apply_strat(t_stack *a, t_stack *b, t_move_count *move, t_bench bench)
 {
 	if (bench.strategy == Simple)
 	{
-		insertion_sort(a, b, move_count);
+		insertion_sort(a, b, move);
 		return ;
 	}
 	if (bench.strategy == Medium)
 	{
-		bucket_sort(a, b, move_count);
+		bucket_sort(a, b, move);
 		return ;
 	}
 	if (bench.strategy == Complex)
 	{
-		radix_sort(a, b, move_count);
+		radix_sort(a, b, move);
 		return ;
 	}
 }

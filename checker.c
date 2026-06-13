@@ -6,38 +6,13 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 16:11:49 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/13 15:50:23 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/13 18:32:22 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "checker.h"
 
-int	is_sorted(t_stack *a, t_stack *b)
-{
-	size_t	i;
-
-	i = 0;
-	while (i + 1 < a->curr_size)
-	{
-		if (access_stack(a, i) > access_stack(a, i + 1))
-			return (0);
-		i++;
-	}
-	if (b->curr_size != 0)
-		return (0);
-	return (1);
-}
-
-// Create stack
-// READ operations from stdin until just click(or invalid input, in this case finish and print ERROR!) enter instead of move + enter
-// Store each interation in a buffer
-// Use the movements on the stack a / b
-// IF stack a is sorted and stack b is empty
-	// print OK!
-//ELSE
-	// print KO!
-	//
 static int	apply_moves(t_stack *a, t_stack *b, char *move)
 {
 	if (!ft_strcmp(move, "sa\n"))
@@ -62,17 +37,19 @@ static int	apply_moves(t_stack *a, t_stack *b, char *move)
 		return (rev_rotate(b), 0);
 	if (!ft_strcmp(move, "rrr\n"))
 		return (rev_rotate(a), rev_rotate(b), 0);
-	return (ft_putstr_fd("Error!\n", 2), -1);
+	return (ft_putstr_fd("Error\n", 2), -1);
 }
 
 int	main(int argc, char **argv)
 {
 	size_t	nbr_count;
-	t_stack 	*a;
+	t_stack	*a;
 	t_stack	*b;
 	char	*moves;
 
 	nbr_count = argc - 1;
+	if (argc == 1)
+		return (0);
 	if (build_stacks(nbr_count, argv + 1, &a, &b) == -1)
 		return (-1);
 	moves = get_next_line(0);

@@ -6,7 +6,7 @@
 #    By: tpinto-v <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/12 17:30:25 by tpinto-v          #+#    #+#              #
-#    Updated: 2026/06/12 17:33:15 by tpinto-v         ###   ########.fr        #
+#    Updated: 2026/06/13 16:06:40 by jlandeir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_DIR = ft_printf
 LIBFT = $(LIBFT_DIR)/libftprintf.a
+GNL_DIR = gnl
+GNL = $(GNL_DIR)/libget_next_line.a
 
 NAME = push_swap
 SRCS = push_swap_utils.c \
@@ -22,42 +24,54 @@ SRCS = push_swap_utils.c \
        rotate.c \
        rev_rotate.c \
        insertion_sort.c \
-       push_swap.c \
        radix_sort.c \
-       checker.c \
        bucket_sort.c \
        rev_insertion_sort.c \
        disorder.c \
        bench.c \
        parser.c
+SRC_MAIN = push_swap.c
+NAME_BONUS = checker
+SRCS_BONUS = checker.c
 
-OBJS = $(SRCS:%.c=%.o)2
+OBJS = $(SRCS:%.c=%.o)
+OBJ_MAIN = $(SRC_MAIN:%.c=%.o)
+OBJS_BONUS = $(SRCS_BONUS:%.c=%.o)
 
 MAKE_LIBFT = $(MAKE) -C $(LIBFT_DIR)
+MAKE_GNL = $(MAKE) -C $(GNL_DIR)
 
-MAIN = main.c
+all: $(NAME)
 
-EXEC = $(basename $(MAIN))
-
-all: $(NAME) 
-
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -L$(LIBFT_DIR) $(OBJS) -o $(NAME) -lftprintf
+$(NAME): $(OBJS) $(OBJ_MAIN) $(LIBFT)
+	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -L$(LIBFT_DIR) $(OBJS) $(OBJ_MAIN) -o $(NAME) -lftprintf
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE_LIBFT)
+
+$(GNL):
+	$(MAKE_GNL)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS)
+	rm -rf $(OBJ_MAIN)
+	rm -rf $(OBJS_BONUS)
 	$(MAKE_LIBFT) clean
+	$(MAKE_GNL) clean
 	
 fclean: clean
 	rm -rf $(NAME) 
+	rm -rf $(NAME_BONUS)
 	$(MAKE_LIBFT) fclean
+	$(MAKE_GNL) fclean
 
 re: fclean all
 
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS):	$(OBJS) $(OBJS_BONUS) $(LIBFT) $(GNL)
+	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(GNL) -L$(LIBFT_DIR) -L$(GNL_DIR) $(OBJS) $(OBJS_BONUS) -o $(NAME_BONUS) -lftprintf -lget_next_line
 .PHONY: all clean fclean re

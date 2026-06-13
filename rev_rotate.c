@@ -6,13 +6,13 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:46:04 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/09 15:12:45 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/13 15:21:09 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rev_rotate(t_stack *s)
+void	rev_rotate(t_stack *s)
 {
 	int	new_top;
 	int	new_top_value;

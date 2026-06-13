@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:20:15 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/08 17:51:52 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/13 14:59:57 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	swap_ints(int *a, int *b)
 	*b = c;
 }
 
-static void	swap_top(t_stack *s)
+void	swap_top(t_stack *s)
 {
 	size_t	s_max_size;
 	size_t	s_top;

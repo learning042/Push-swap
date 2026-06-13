@@ -6,25 +6,26 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 16:11:49 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/12 17:52:24 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/13 15:50:23 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "checker.h"
 
-int	is_sorted(t_stack *s)
+int	is_sorted(t_stack *a, t_stack *b)
 {
 	size_t	i;
 
 	i = 0;
-	if (s->curr_size < 2)
-		return (1);
-	while (i + 1 < s->curr_size)
+	while (i + 1 < a->curr_size)
 	{
-		if (access_stack(s, i) > access_stack(s, i + 1))
+		if (access_stack(a, i) > access_stack(a, i + 1))
 			return (0);
 		i++;
 	}
+	if (b->curr_size != 0)
+		return (0);
 	return (1);
 }
 
@@ -36,17 +37,52 @@ int	is_sorted(t_stack *s)
 	// print OK!
 //ELSE
 	// print KO!
+	//
+static int	apply_moves(t_stack *a, t_stack *b, char *move)
+{
+	if (!ft_strcmp(move, "sa\n"))
+		return (swap_top(a), 0);
+	if (!ft_strcmp(move, "sb\n"))
+		return (swap_top(b), 0);
+	if (!ft_strcmp(move, "ss\n"))
+		return (swap_top(a), swap_top(b), 0);
+	if (!ft_strcmp(move, "pa\n"))
+		return (push(b, a), 0);
+	if (!ft_strcmp(move, "pb\n"))
+		return (push(a, b), 0);
+	if (!ft_strcmp(move, "ra\n"))
+		return (rotate(a), 0);
+	if (!ft_strcmp(move, "rb\n"))
+		return (rotate(b), 0);
+	if (!ft_strcmp(move, "rr\n"))
+		return (rotate(a), rotate(b), 0);
+	if (!ft_strcmp(move, "rra\n"))
+		return (rev_rotate(a), 0);
+	if (!ft_strcmp(move, "rrb\n"))
+		return (rev_rotate(b), 0);
+	if (!ft_strcmp(move, "rrr\n"))
+		return (rev_rotate(a), rev_rotate(b), 0);
+	return (ft_putstr_fd("Error!\n", 2), -1);
+}
 
-/*
 int	main(int argc, char **argv)
 {
-	int		*nbrs;
 	size_t	nbr_count;
 	t_stack 	*a;
+	t_stack	*b;
+	char	*moves;
 
 	nbr_count = argc - 1;
-	nbrs = malloc(sizeof(int) * nbr_count);
-	while (--argc)
-		nbrs[argc - 1] = ft_atoi(argv[argc]);
-	a = create_stack(nbrs, nbr_count, nbr_count);
-*/
+	if (build_stacks(nbr_count, argv + 1, &a, &b) == -1)
+		return (-1);
+	moves = get_next_line(0);
+	while (moves != NULL)
+	{
+		if (apply_moves(a, b, moves) == -1)
+			return (-1);
+		moves = get_next_line(0);
+	}
+	if (is_sorted(a, b))
+		return (ft_putstr_fd("OK\n", 1), 0);
+	return (ft_putstr_fd("KO\n", 1), 0);
+}

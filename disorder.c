@@ -6,7 +6,7 @@
 /*   By: tpinto-v <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 14:46:48 by tpinto-v          #+#    #+#             */
-/*   Updated: 2026/06/10 16:11:10 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/13 12:51:16 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 t_rational	compute_disorder(t_stack *s)
 {
-	size_t	mistakes;
-//	size_t	total_pairs;
-	size_t	i;
-	size_t	j;
+	size_t		mistakes;
+	size_t		i;
+	size_t		j;
 	t_rational	disorder;
 
+	if (s->curr_size <= 1)
+		return (disorder.num = 0, disorder.den = 1, disorder);
 	mistakes = 0;
 	i = 0;
 	while (i < s->curr_size)
@@ -34,7 +35,6 @@ t_rational	compute_disorder(t_stack *s)
 		++i;
 	}
 	disorder.num = mistakes;
-	disorder.den = (s->curr_size * (s->curr_size + 1)) / 2;
+	disorder.den = (s->curr_size * (s->curr_size - 1)) / 2;
 	return (disorder);
 }
-

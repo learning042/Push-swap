@@ -6,13 +6,13 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:45:08 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/08 15:56:23 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/13 15:04:06 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_stack *a, t_stack *b)
+void	push(t_stack *a, t_stack *b)
 {
 	if (a->curr_size == 0)
 		return ;

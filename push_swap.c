@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:48:57 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/11 17:48:48 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/13 15:44:06 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ int	main(int argc, char **argv)
 	t_bench	bench;
 	int	test;
 	
-/*	if (parser(argc, argv, &bench, a, b) == -1)
-		return (-1);
-*/
 	if (parser(argc, argv, &bench, &a, &b) == -1)
 		return (-1);
 	
@@ -45,22 +42,21 @@ int	main(int argc, char **argv)
 	bench.has_bench = 0;
 	bench.has_strategy = 0;
 */	init_bench_disorder(a, &bench);
-	test = 1;
+	test = 0;
 	if (test)
 	{
 		printf("Stack a\n");
 		print_stack(a);
-		printf("Stack a status : %d\n", is_sorted(a));
+	//	printf("Stack a status : %d\n", is_sorted(a));
 	}
 	apply_strategy(a, b, &move_count, bench);	
-//	bucket_sort(a, b, &move_count);
 	if (test)
 	{
 		print_stack(a);
-		printf("Stack a status : %d\n", is_sorted(a));
-		if (bench.has_bench)
-			print_bench(&bench, &move_count);
+	//	printf("Stack a status : %d\n", is_sorted(a));
 	}
+	if (bench.has_bench)
+		print_bench(&bench, &move_count);
 	free_stack(a);
 	free_stack(b);
 	return (0);

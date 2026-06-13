@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 13:48:50 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/11 17:55:03 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/13 15:48:41 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ static int	safe_mult(int a, int b, int *res)
 	}
 	return (-1);
 }
-		
+
 int	safe_atoi(char *str, int *val)
 {
 	size_t	i;
-	int	sign;
-	int	res;
+	int		sign;
+	int		res;
 
 	res = 0;
 	i = (*str == '-');
@@ -85,7 +85,7 @@ int	safe_atoi(char *str, int *val)
 	return (0);
 }
 
-static int	ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	while (*s1 != '\0' && *s2 != '\0')
 	{
@@ -110,7 +110,7 @@ static int	is_flag(char *s)
 	if (ft_strcmp(s, "--complex") == 0)
 		return (1);
 	return (0);
-}	
+}
 
 static int	update_bench_flags(char *s, t_bench *bench)
 {
@@ -135,7 +135,7 @@ static int	update_bench_flags(char *s, t_bench *bench)
 	if (ft_strcmp(s, "--complex") == 0)
 		return (bench->is_adaptive = 0, bench->strategy = Complex, bench->has_strategy = 1);
 	return (0);
-}	
+}
 
 static void	init_bench(t_bench *bench)
 {
@@ -145,7 +145,7 @@ static void	init_bench(t_bench *bench)
 	bench->strategy = Adaptive;
 }
 
-static int	build_stacks(int nbr_count, char **nbr_str, t_stack **a, t_stack **b)
+int	build_stacks(int nbr_count, char **nbr_str, t_stack **a, t_stack **b)
 {
 	int	*nbrs;
 	int	i;
@@ -154,8 +154,8 @@ static int	build_stacks(int nbr_count, char **nbr_str, t_stack **a, t_stack **b)
 	i = 0;
 	while (i < nbr_count)
 	{
-		if(safe_atoi(nbr_str[i], &nbrs[i]) == -1)
-			return (ft_printf("Bad number error!\n"), -1);
+		if (safe_atoi(nbr_str[i], &nbrs[i]) == -1)
+			return (ft_putstr_fd("Error\n", 2), -1);
 		i++;
 	}
 	*a = create_stack(nbrs, nbr_count, nbr_count);
@@ -175,7 +175,7 @@ int	parser(int argc, char **argv, t_bench *bench, t_stack **a, t_stack **b)
 	{
 		if (update_bench_flags(argv[i], bench) == -1)
 		{
-			printf("Flag parsing error!\n");
+			ft_putstr_fd("Error\n", 2);
 			return (-1);
 		}
 		i++;
@@ -202,7 +202,3 @@ void	apply_strategy(t_stack *a, t_stack *b, t_move_count *move_count, t_bench be
 		return ;
 	}
 }
-
-/*	if (i > 3)
-		return (printf("Too many flags!\n"), -1);
-*/

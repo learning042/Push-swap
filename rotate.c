@@ -6,13 +6,13 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:36:03 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/08 15:50:00 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/13 15:07:13 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_stack *s)
+void	rotate(t_stack *s)
 {
 	s->array[mod(s->top + s->curr_size, s->max_size)] = s->array[s->top];
 	s->top = mod(s->top + 1, s->max_size);

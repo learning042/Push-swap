@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:46:04 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/13 15:21:09 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/15 14:26:27 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	rev_rotate_a(t_stack *a, t_move_count *m)
 	rev_rotate(a);
 	m->rra++;
 	m->total++;
-	printf("rra\n");
+	ft_fprintf(1, "rra\n");
 	return ;
 }
 
@@ -38,7 +38,7 @@ void	rev_rotate_b(t_stack *b, t_move_count *m)
 	rev_rotate(b);
 	m->rrb++;
 	m->total++;
-	printf("rrb\n");
+	ft_fprintf(1, "rrb\n");
 	return ;
 }
 
@@ -48,6 +48,6 @@ void	rev_rotate_both(t_stack *a, t_stack *b, t_move_count *m)
 	rev_rotate(b);
 	m->rrr++;
 	m->total++;
-	printf("rrr\n");
+	ft_fprintf(1, "rrr\n");
 	return ;
 }

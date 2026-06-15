@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:20:15 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/13 18:05:15 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/15 14:24:46 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	swap_a(t_stack *a, t_move_count *m)
 	swap_top(a);
 	m->sa++;
 	m->total++;
-	printf("sa\n");
+	ft_fprintf(1, "sa\n");
 	return ;
 }
 
@@ -50,7 +50,7 @@ void	swap_b(t_stack *b, t_move_count *m)
 	swap_top(b);
 	m->sb++;
 	m->total++;
-	printf("sb\n");
+	ft_fprintf(1, "sb\n");
 	return ;
 }
 
@@ -60,6 +60,6 @@ void	swap_both(t_stack *a, t_stack *b, t_move_count *m)
 	swap_top(b);
 	m->ss++;
 	m->total++;
-	printf("ss\n");
+	ft_fprintf(1, "ss\n");
 	return ;
 }

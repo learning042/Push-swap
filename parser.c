@@ -54,14 +54,16 @@ int	build_stacks(int nbr_count, char **nbr_str, t_stack **a, t_stack **b)
 	while (i < nbr_count)
 	{
 		if (safe_atoi(nbr_str[i], &nbrs[i]) == -1)
-			return (ft_putstr_fd("Error\n", 2), -1);
+			return (free(nbrs), ft_putstr_fd("Error\n", 2), -1);
 		i++;
 	}
 	if (has_duplicate(nbrs, nbr_count))
-		return (ft_putstr_fd("Error\n", 2), -1);
+		return (free(nbrs), ft_putstr_fd("Error\n", 2), -1);
 	*a = create_stack(nbrs, nbr_count, nbr_count);
 	*b = create_stack(NULL, 0, nbr_count);
 	free(nbrs);
+	if (*a == NULL || *b == NULL)
+		return (free_stack(*a), free_stack(*b), -1);
 	return (0);
 }
 

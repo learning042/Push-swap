@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:45:08 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/13 15:04:06 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/15 14:25:18 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	push_a(t_stack *a, t_stack *b, t_move_count *m)
 	push(b, a);
 	m->pa++;
 	m->total++;
-	printf("pa\n");
+	ft_fprintf(1, "pa\n");
 	return ;
 }
 
@@ -38,6 +38,6 @@ void	push_b(t_stack *a, t_stack *b, t_move_count *m)
 	push(a, b);
 	m->pb++;
 	m->total++;
-	printf("pb\n");
+	ft_fprintf(1, "pb\n");
 	return ;
 }

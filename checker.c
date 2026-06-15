@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 	while (moves != NULL)
 	{
 		if (apply_moves(a, b, moves) == -1)
-			return (-1);
+			return (free_stack(a), free_stack(b), free(moves), -1);
 		free(moves);
 		moves = get_next_line(0);
 	}

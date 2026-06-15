@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_DIR = ft_fprintf
 LIBFT = $(LIBFT_DIR)/libftfprintf.a
 GNL_DIR = get_next_line

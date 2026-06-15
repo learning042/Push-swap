@@ -216,6 +216,40 @@ shuf -i 0-9999 -n 500 > input.txt
 
 ---
 
+# Bonus — Checker
+
+The bonus consists of a `checker` program that receives the same stack arguments as `push_swap`, reads moves from `stdin`, and verifies whether applying them leaves stack A sorted and stack B empty.
+
+### Output
+
+| Result | Meaning |
+|--|--|
+| **OK** | The moves correctly sort the stack |
+| **KO** | The moves were applied but the result is not sorted |
+| **ERROR** | An invalid argument was passed, or an unrecognized move was entered |
+
+### Usage
+
+```bash
+./checker 2 1 3
+sa
+^D
+OK
+```
+
+After running, the program waits for input. Each line should contain a valid move (`sa`, `sb`, `ss`, `pa`, `pb`, `ra`, `rb`, `rr`, `rra`, `rrb`, `rrr`). When done, close `stdin` with **Ctrl+D**.
+
+### Validating push_swap with checker
+
+As shown in the Instructions section, you can pipe the output of `push_swap` directly into `checker` using a shared args file:
+
+```bash
+shuf -i 0-9999 -n 500 > args.txt
+./push_swap --bench $(cat args.txt) 2> bench.txt | ./checker $(cat args.txt)
+```
+
+If your `push_swap` is correct, the result will always be **OK**.
+
 # Contributions
 
 ### jlandeir
@@ -225,12 +259,14 @@ shuf -i 0-9999 -n 500 > input.txt
 - Came up with the idea of using **`√n` as the bucket size**, which set the foundation for the bucket sort structure.
 - Discussed the **radix sort** approach together with tpinto-v — reviewing other implementations in different contexts — which led to tpinto-v writing the code; also reviewed the code and helped fix any bugs that appeared.
 - Later improved the bucket sort with a more **optimized bucket size** tailored specifically to pushswap's constraints, beyond the initial `√n`.
+- Checker
 
 ### tpinto-v
 - Refactored parts of the codebase to use the `access_stack` function, improving code clarity.
 - Wrote this **README**.
 - After jlandeir's `√n` bucket size idea and their joint discussion on how elements would flow through stack B, came up with the final sorting strategy: performing a **reverse sort on stack B** so that popping all elements back to A yields a correctly sorted stack A — keeping the logic clean and the code straightforward.
 - Wrote the **radix sort** code after both discussed the algorithm and studied other implementations together.
+- Checker
 
 ---
 

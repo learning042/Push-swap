@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/13 14:34:48 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/15 13:53:25 by jlandeir         ###   ########.fr       */
+/*   Created: 2026/04/20 19:15:49 by jlandeir          #+#    #+#             */
+/*   Updated: 2026/04/20 19:15:51 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-# include "push_swap.h"
-# include "get_next_line/get_next_line.h"
-# include "ft_fprintf/ft_fprintf.h"
-
-#endif
+int	ft_tolower(int c)
+{
+	if ('A' <= c && c <= 'Z')
+		return (c + 'a' - 'A');
+	return (c);
+}

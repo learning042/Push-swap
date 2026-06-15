@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/13 14:34:48 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/15 13:53:25 by jlandeir         ###   ########.fr       */
+/*   Created: 2026/04/22 13:45:26 by jlandeir          #+#    #+#             */
+/*   Updated: 2026/04/28 16:33:38 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-# include "push_swap.h"
-# include "get_next_line/get_next_line.h"
-# include "ft_fprintf/ft_fprintf.h"
-
-#endif
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (lst == NULL)
+		return ;
+	del(lst->content);
+	free(lst);
+	return ;
+}

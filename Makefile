@@ -6,14 +6,14 @@
 #    By: tpinto-v <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/12 17:30:25 by tpinto-v          #+#    #+#              #
-#    Updated: 2026/06/15 13:01:44 by jlandeir         ###   ########.fr        #
+#    Updated: 2026/06/15 13:45:12 by jlandeir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-LIBFT_DIR = ft_printf
-LIBFT = $(LIBFT_DIR)/libftprintf.a
+LIBFT_DIR = ft_fprintf
+LIBFT = $(LIBFT_DIR)/libftfprintf.a
 GNL_DIR = get_next_line
 GNL = $(GNL_DIR)/libget_next_line.a
 
@@ -48,7 +48,7 @@ MAKE_GNL = $(MAKE) -C $(GNL_DIR)
 all: $(NAME)
 
 $(NAME): $(OBJS) $(OBJ_MAIN) $(LIBFT)
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -L$(LIBFT_DIR) $(OBJS) $(OBJ_MAIN) -o $(NAME) -lftprintf
+	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -L$(LIBFT_DIR) $(OBJS) $(OBJ_MAIN) -o $(NAME) -lftfprintf
 
 $(LIBFT):
 	$(MAKE_LIBFT)
@@ -77,5 +77,5 @@ re: fclean all bonus
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS):	$(OBJS) $(OBJS_BONUS) $(LIBFT) $(GNL)
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(GNL) -L$(LIBFT_DIR) -L$(GNL_DIR) $(OBJS) $(OBJS_BONUS) -o $(NAME_BONUS) -lftprintf -lget_next_line
+	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(GNL) -L$(LIBFT_DIR) -L$(GNL_DIR) $(OBJS) $(OBJS_BONUS) -o $(NAME_BONUS) -lftfprintf -lget_next_line
 .PHONY: all clean fclean re

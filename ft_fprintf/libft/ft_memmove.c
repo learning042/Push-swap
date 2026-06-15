@@ -1,20 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/13 14:34:48 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/15 13:53:25 by jlandeir         ###   ########.fr       */
+/*   Created: 2026/04/20 19:14:15 by jlandeir          #+#    #+#             */
+/*   Updated: 2026/04/28 15:29:53 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-# include "push_swap.h"
-# include "get_next_line/get_next_line.h"
-# include "ft_fprintf/ft_fprintf.h"
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	size_t				i;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-#endif
+	d = dest;
+	s = src;
+	if (d < s)
+	{
+		i = 0;
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+	else
+	{
+		i = n;
+		while (i != 0)
+		{
+			d[i - 1] = s[i - 1];
+			i--;
+		}
+	}
+	return (dest);
+}

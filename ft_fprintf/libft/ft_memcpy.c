@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/13 14:34:48 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/15 13:53:25 by jlandeir         ###   ########.fr       */
+/*   Created: 2026/04/20 19:13:59 by jlandeir          #+#    #+#             */
+/*   Updated: 2026/04/20 19:14:05 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-# include "push_swap.h"
-# include "get_next_line/get_next_line.h"
-# include "ft_fprintf/ft_fprintf.h"
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t				i;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-#endif
+	i = 0;
+	d = (unsigned char *) dest;
+	s = (const unsigned char *) src;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
+}

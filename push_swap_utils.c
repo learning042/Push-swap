@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:52:21 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/13 18:48:17 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/15 13:43:32 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	mod(int a, int b)
 
 void	print_move_count(t_move_count *m)
 {
-	ft_printf(2, "[bench] total_ops: %d\n", m->total);
-	ft_printf(2, "[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n",
+	ft_fprintf(2, "[bench] total_ops: %d\n", m->total);
+	ft_fprintf(2, "[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n",
 		m->sa, m->sb, m->ss, m->pa, m->pb, 2);
-	ft_printf(2, "[bench] ra: %d, rb: %d, rr: %d, rra: %d, rrb: %d, rrr: %d\n",
+	ft_fprintf(2, "[bench] ra: %d, rb: %d, rr: %d, rra: %d, rrb: %d, rrr: %d\n",
 		m->ra, m->rb, m->rr, m->rra, m->rrb, m->rrr);
 	return ;
 }

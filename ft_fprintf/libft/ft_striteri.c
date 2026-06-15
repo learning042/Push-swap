@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/13 14:34:48 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/15 13:53:25 by jlandeir         ###   ########.fr       */
+/*   Created: 2026/04/21 16:08:39 by jlandeir          #+#    #+#             */
+/*   Updated: 2026/04/21 16:15:07 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-# include "push_swap.h"
-# include "get_next_line/get_next_line.h"
-# include "ft_fprintf/ft_fprintf.h"
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, s + i);
+		i++;
+	}
+	return ;
+}

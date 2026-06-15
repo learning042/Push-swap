@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 12:45:49 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/15 12:46:08 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/15 13:57:45 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	safe_atoi(char *str, int *val)
 		return (-1);
 	res = 0;
 	i = (str[0] == '+') || (str[0] == '-');
-	sign = 1 - 2 * (str[0]);
+	sign = 1 - 2 * (str[0] == '-');
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')

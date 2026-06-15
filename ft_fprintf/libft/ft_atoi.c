@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/13 14:34:48 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/15 13:53:25 by jlandeir         ###   ########.fr       */
+/*   Created: 2026/04/20 19:17:27 by jlandeir          #+#    #+#             */
+/*   Updated: 2026/04/28 15:52:42 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-# include "push_swap.h"
-# include "get_next_line/get_next_line.h"
-# include "ft_fprintf/ft_fprintf.h"
+int	ft_atoi(const char *nptr)
+{
+	size_t	i;
+	int		sign;
+	int		result;
 
-#endif
+	i = 0;
+	while (nptr[i] == 32 || (9 <= nptr[i] && nptr[i] <= 13))
+		i++;
+	sign = 1;
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
+	}
+	result = 0;
+	while ('0' <= nptr[i] && nptr[i] <= '9')
+	{
+		result = 10 * result + sign * (nptr[i] - '0');
+		i++;
+	}
+	return (result);
+}

@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:48:57 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/15 11:59:32 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/15 13:58:26 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,21 @@ static void	init_move_count(t_move_count *moves)
 
 	*moves = zero;
 }
+
+/*
+static void	print_stack(t_stack *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < s->curr_size)
+	{
+		ft_fprintf(2, "%d\n", access_stack(s, i));
+		i++;
+	}
+	return ;
+}
+*/
 
 int	main(int argc, char **argv)
 {

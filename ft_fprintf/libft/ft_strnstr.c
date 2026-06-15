@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/13 14:34:48 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/15 13:53:25 by jlandeir         ###   ########.fr       */
+/*   Created: 2026/04/20 19:10:25 by jlandeir          #+#    #+#             */
+/*   Updated: 2026/04/20 19:10:29 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-# include "push_swap.h"
-# include "get_next_line/get_next_line.h"
-# include "ft_fprintf/ft_fprintf.h"
+char	*ft_strnstr(const char *big, const char *small, size_t len)
+{
+	size_t	len_big;
+	size_t	len_small;
+	size_t	i;
 
-#endif
+	len_big = ft_strlen(big);
+	len_small = ft_strlen(small);
+	i = 0;
+	if (len > len_big)
+		len = len_big;
+	while (i + len_small <= len)
+	{
+		if (ft_memcmp((char *)big + i, small, len_small) == 0)
+			return ((char *)big + i);
+		i++;
+	}
+	return (NULL);
+}

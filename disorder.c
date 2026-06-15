@@ -52,11 +52,11 @@ void	init_bench_disorder(t_stack *s, t_bench *bench)
 	den = disorder.den;
 	if (!bench->is_adaptive)
 		return ;
-	if (4 * num < den)
+	if (5 * num < den)
 		return ((void)(bench->strategy = Simple));
-	if (1 * den <= 10 * num && 10 * num < 5 * den)
+	if (2 * den <= 10 * num && 10 * num < 5 * den)
 		return ((void)(bench->strategy = Medium));
-	if (9 * num >= 5 * den)
+	if (10 * num >= 5 * den)
 		return ((void)(bench->strategy = Complex));
 }
 

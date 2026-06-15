@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ft_fprintf
 LIBFT = $(LIBFT_DIR)/libftfprintf.a
 GNL_DIR = get_next_line
@@ -78,4 +78,5 @@ bonus: $(NAME_BONUS)
 
 $(NAME_BONUS):	$(OBJS) $(OBJS_BONUS) $(LIBFT) $(GNL)
 	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(GNL) -L$(LIBFT_DIR) -L$(GNL_DIR) $(OBJS) $(OBJS_BONUS) -o $(NAME_BONUS) -lftfprintf -lget_next_line
-.PHONY: all clean fclean re
+
+.PHONY: all clean fclean re bonus

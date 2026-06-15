@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 15:39:31 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/13 18:36:52 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/15 15:39:24 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ static void	print_strategy(t_bench *bench)
 	if (strategy == Medium)
 	{
 		if (!bench->is_adaptive)
-			ft_putstr_fd("Medium /", 2);
+			ft_putstr_fd("Medium / ", 2);
 		ft_putstr_fd("O(n\xe2\x88\x9an)\n", 2);
 	}
 	if (strategy == Complex)
 	{
 		if (!bench->is_adaptive)
-			ft_putstr_fd("Complex /", 2);
+			ft_putstr_fd("Complex / ", 2);
 		ft_putstr_fd("O(n log n)\n", 2);
 	}
 	return ;

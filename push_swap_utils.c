@@ -20,9 +20,9 @@ int	mod(int a, int b)
 void	print_move_count(t_move_count *m)
 {
 	ft_fprintf(2, "[bench] total_ops: %d\n", m->total);
-	ft_fprintf(2, "[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n",
+	ft_fprintf(2, "[bench] sa: %d  sb: %d  ss: %d  pa: %d  pb: %d\n",
 		m->sa, m->sb, m->ss, m->pa, m->pb, 2);
-	ft_fprintf(2, "[bench] ra: %d, rb: %d, rr: %d, rra: %d, rrb: %d, rrr: %d\n",
+	ft_fprintf(2, "[bench] ra: %d  rb: %d  rr: %d  rra: %d  rrb: %d  rrr: %d\n",
 		m->ra, m->rb, m->rr, m->rra, m->rrb, m->rrr);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 15:40:30 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/13 19:41:34 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/15 12:03:32 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,15 @@ void	rev_rotate_both(t_stack *a, t_stack *b, t_move_count *m);
 
 // parsing
 
-int	has_duplicate(int *array, size_t len);
-int	safe_atoi(char *str, int *val);
-int	ft_strcmp(char *s1, char *s2);
-void	apply_strat(t_stack *a, t_stack *b, t_move_count *move_count, t_bench bench);
-int	build_stacks(int nbr_count, char **nbr_str, t_stack **a, t_stack **b);
-int	parser(int argc, char **argv, t_bench *bench, int *first_nbr);
+int		has_duplicate(int *array, size_t len);
+int		safe_atoi(char *str, int *val);
+int		ft_strcmp(char *s1, char *s2);
+int		is_flag(char *s);
+void	apply_strat(t_stack *a, t_stack *b, t_move_count *moves, t_bench bench);
+int		build_stacks(int nbr_count, char **nbr_str, t_stack **a, t_stack **b);
+int		parser(int argc, char **argv, t_bench *bench, int *first_nbr);
 
 // stack utils
-void	print_stack(t_stack *s);
 t_stack	*create_stack(int *nbrs, size_t nbr_count, size_t size);
 void	init_stack(t_stack *s, int *arr);
 void	free_stack(t_stack *s);
@@ -110,8 +110,8 @@ void	insertion_sort(t_stack *a, t_stack *b, t_move_count *move_count);
 void	radix_sort(t_stack *a, t_stack *b, t_move_count *move_count);
 
 // benchmark
-
-t_rational	compute_disorder(t_stack *s);
+void	compute_disorder(t_stack *s, t_rational *disorder);
 void	print_bench(t_bench *bench, t_move_count *moves);
 void	init_bench_disorder(t_stack *s, t_bench *bench);
+void	print_disorder(t_rational disorder);
 #endif

@@ -6,19 +6,20 @@
 #    By: tpinto-v <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/12 17:30:25 by tpinto-v          #+#    #+#              #
-#    Updated: 2026/06/13 18:51:33 by jlandeir         ###   ########.fr        #
+#    Updated: 2026/06/15 13:01:44 by jlandeir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ft_printf
 LIBFT = $(LIBFT_DIR)/libftprintf.a
-GNL_DIR = gnl
+GNL_DIR = get_next_line
 GNL = $(GNL_DIR)/libget_next_line.a
 
 NAME = push_swap
 SRCS = push_swap_utils.c \
+       stacks.c \
        swap.c \
        push.c \
        rotate.c \
@@ -29,7 +30,10 @@ SRCS = push_swap_utils.c \
        rev_insertion_sort.c \
        disorder.c \
        bench.c \
-       parser.c
+       parser.c \
+       parser_utils.c \
+       safe_atoi.c
+
 SRC_MAIN = push_swap.c
 NAME_BONUS = checker
 SRCS_BONUS = checker.c

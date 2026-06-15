@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 16:11:49 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/13 18:32:22 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/15 11:44:37 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,11 @@ int	main(int argc, char **argv)
 	{
 		if (apply_moves(a, b, moves) == -1)
 			return (-1);
+		free(moves);
 		moves = get_next_line(0);
 	}
+	free(moves);
 	if (is_sorted(a, b))
-		return (ft_putstr_fd("OK\n", 1), 0);
-	return (ft_putstr_fd("KO\n", 1), 0);
+		return (free_stack(a), free_stack(b), ft_putstr_fd("OK\n", 1), 0);
+	return (free_stack(a), free_stack(b), ft_putstr_fd("KO\n", 1), 0);
 }

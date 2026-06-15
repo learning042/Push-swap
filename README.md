@@ -38,7 +38,6 @@ typedef struct	s_stack
 where `array` holds the elements, `max_size` is the maximum capacity, `curr_size` is the current number of elements in the buffer (e.g., stack B will have `curr_size = 0` at the start), and `top` is the index of the element at the top of the stack, i.e., the first element.
 
 ![ring buffer](https://camera-sdk.com/attachments/6554/circular-buffer-video-recording.jpg)
-![ring buffer2](https://blog.pantuza.com/uploads/18268d3eacfe61c84b808a63d3e84030f1f6af65)
 
 The operations over this data structure are fairly straightforward. The swap is done just as with an ordinary array. To pop from one stack and push to the other, we only need to update `curr_size` for both stacks and adjust the `top` index. For rotating, we copy the current top element to the bottom of the array and then update `top` to `(top + 1) % max_size`. This way, the new top index points to what was previously the second element, and we also handle the case where `top + 1` would equal `max_size` (wrapping around). In our implementation we ensured the remainder never takes a negative value.
 
@@ -241,14 +240,14 @@ After running, the program waits for input. Each line should contain a valid mov
 
 ### Validating push_swap with checker
 
-As shown in the Instructions section, you can pipe the output of `push_swap` directly into `checker` using a shared args file:
+As shown in the subject of the project, you can pipe the output of `push_swap` directly into `checker` using a shared args file:
 
 ```bash
 shuf -i 0-9999 -n 500 > args.txt
 ./push_swap --bench $(cat args.txt) 2> bench.txt | ./checker $(cat args.txt)
 ```
 
-If your `push_swap` is correct, the result will always be **OK**.
+If the project is correct, the result will always be **OK**.
 
 # Contributions
 

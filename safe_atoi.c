@@ -24,22 +24,17 @@ static int	safe_add(int a, int b, int *res)
 
 static int	safe_mult(int a, int b, int *res)
 {
-	if (a == 0 || b == 0)
-	{
-		*res = 0;
-		return (0);
-	}
-	if (((a > 0 && b > 0) || (a < 0 && b < 0)) && (a <= INT_MAX / b))
-	{
-		*res = a * b;
-		return (0);
-	}
-	if (((a > 0 && b < 0) || (a < 0 && b > 0)) && (a <= INT_MIN / b))
-	{
-		*res = a * b;
-		return (0);
-	}
-	return (-1);
+	*res = 0;
+	if (a > 0 && b > 0 && a > INT_MAX / b)
+		return (-1);
+	if (a < 0 && b > 0 && a < INT_MIN / b)
+		return (-1);
+	if (a > 0 && b < 0 && b < INT_MIN / a)
+		return (-1);
+	if (a < 0 && b < 0 && a < INT_MAX / b)
+		return (-1);
+	*res = a * b;
+	return (0);
 }
 
 int	safe_atoi(char *str, int *val)

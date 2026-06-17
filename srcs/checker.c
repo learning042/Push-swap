@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "checker.h"
 
 static int	apply_moves(t_stack *a, t_stack *b, char *move)

@@ -19,21 +19,6 @@ static void	init_move_count(t_move_count *moves)
 	*moves = zero;
 }
 
-/*
-static void	print_stack(t_stack *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < s->curr_size)
-	{
-		ft_fprintf(2, "%d\n", access_stack(s, i));
-		i++;
-	}
-	return ;
-}
-*/
-
 int	main(int argc, char **argv)
 {
 	t_stack			*a;
@@ -42,6 +27,7 @@ int	main(int argc, char **argv)
 	t_bench			bench;
 	int				first_nbr;
 
+	first_nbr = -1;
 	if (argc == 1)
 		return (0);
 	init_move_count(&move_count);

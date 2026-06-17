@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 15:40:30 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/15 14:23:47 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/17 16:17:28 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <limits.h>
-# include "ft_fprintf/ft_fprintf.h"
+# include "../ft_fprintf/ft_fprintf.h"
 
 typedef struct s_stack
 {

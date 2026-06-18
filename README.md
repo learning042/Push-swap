@@ -218,6 +218,7 @@ shuf -i 0-9999 -n 500 > input.txt
 - `> input.txt` saves them to a file.
 - `2> bench.txt` redirects stderr (file descriptor 2) to `bench.txt`, capturing all benchmark output there.
 
+>___Note:___ The scripts above are done in bash. If you are using zsh, the command `$> ARG="4 67 3 87 23"; ./push_swap --complex $ARG | ./checker_linux $ARG` won't work as you may expect. In this script we pass `ARG` as an argument however in zsh it will be interpreted as "4 67 3 87 23" instead of five numbers separately as in bash script. In order to run correctly you must beforehand use the command `setopt shwordsplit`, so that zsh splits the strings that you (indirectly) pass as argument (to change back to the default use the command `setopt noshwordsplit` which cancels out the previous).  
 ---
 
 # Bonus — Checker

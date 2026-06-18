@@ -24,7 +24,6 @@ static int	safe_add(int a, int b, int *res)
 
 static int	safe_mult(int a, int b, int *res)
 {
-	*res = 0;
 	if (a > 0 && b > 0 && a > INT_MAX / b)
 		return (-1);
 	if (a < 0 && b > 0 && a < INT_MIN / b)

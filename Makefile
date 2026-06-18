@@ -6,7 +6,7 @@
 #    By: tpinto-v <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/12 17:30:25 by tpinto-v          #+#    #+#              #
-#    Updated: 2026/06/17 16:27:13 by jlandeir         ###   ########.fr        #
+#    Updated: 2026/06/18 13:37:45 by jlandeir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,10 +47,12 @@ OBJS_BONUS = $(SRCS_DIR)/$(SRCS_BONUS:%.c=%.o)
 MAKE_LIBFT = $(MAKE) -C $(LIBFT_DIR)
 MAKE_GNL = $(MAKE) -C $(GNL_DIR)
 
+
 all: $(NAME)
 
 $(NAME): $(OBJS) $(OBJ_MAIN) $(LIBFT)
 	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(INCLUDES) -L$(LIBFT_DIR) $(OBJS) $(OBJ_MAIN) -o $(NAME) -lftfprintf
+
 
 $(LIBFT):
 	$(MAKE_LIBFT)

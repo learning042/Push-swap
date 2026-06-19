@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:48:57 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/19 15:04:07 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/19 15:15:37 by tpinto-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 		return (-1);
 	init_bench_disorder(a, &bench);
 	if (is_sorted(a, b))
-		return (0);
+		return (free_stack(a), free_stack(b), 0);
 	apply_strat(a, b, &move_count, bench);
 	if (bench.has_bench)
 		print_bench(&bench, &move_count);

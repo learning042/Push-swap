@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:15:07 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/08 15:39:30 by tpinto-v         ###   ########.fr       */
+/*   Updated: 2026/06/20 16:24:38 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,11 @@ static void	push_min(t_stack *a, t_stack *b, t_move_count *move_count)
 
 void	insertion_sort(t_stack *a, t_stack *b, t_move_count *move_count)
 {
-	while (a->curr_size != 1)
+	if (a->curr_size == 2 && access_stack(a, 0) > access_stack(a, 1))
+		return (swap_a(a, move_count));
+	while (a->curr_size != 3)
 		push_min(a, b, move_count);
+	sort_three(a, move_count);
 	while (b->curr_size != 0)
 		push_a(a, b, move_count);
 	return ;

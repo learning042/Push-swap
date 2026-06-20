@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 13:48:50 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/13 19:42:45 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/20 16:28:11 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,24 @@ int	parser(int argc, char **argv, t_bench *bench, int *first_nbr)
 	return (0);
 }
 
-void	apply_strat(t_stack *a, t_stack *b, t_move_count *move, t_bench bench)
+void	apply_strat(t_stack *a, t_stack *b, t_move_count *move, t_bench *bench)
 {
-	if (bench.strategy == Simple)
+	if (a->curr_size <= 5)
 	{
 		insertion_sort(a, b, move);
 		return ;
 	}
-	if (bench.strategy == Medium)
+	if (bench->strategy == Simple)
+	{
+		insertion_sort(a, b, move);
+		return ;
+	}
+	if (bench->strategy == Medium)
 	{
 		bucket_sort(a, b, move);
 		return ;
 	}
-	if (bench.strategy == Complex)
+	if (bench->strategy == Complex)
 	{
 		radix_sort(a, b, move);
 		return ;

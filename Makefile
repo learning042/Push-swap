@@ -6,7 +6,7 @@
 #    By: tpinto-v <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/12 17:30:25 by tpinto-v          #+#    #+#              #
-#    Updated: 2026/06/18 13:37:45 by jlandeir         ###   ########.fr        #
+#    Updated: 2026/06/20 15:29:43 by jlandeir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS = push_swap_utils.c \
        push.c \
        rotate.c \
        rev_rotate.c \
+       sort_three.c \
        insertion_sort.c \
        radix_sort.c \
        bucket_sort.c \

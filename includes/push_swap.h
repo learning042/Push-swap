@@ -6,7 +6,7 @@
 /*   By: jlandeir <jlandeir@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 15:40:30 by jlandeir          #+#    #+#             */
-/*   Updated: 2026/06/17 16:17:28 by jlandeir         ###   ########.fr       */
+/*   Updated: 2026/06/20 19:10:07 by jlandeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int		has_duplicate(int *array, size_t len);
 int		safe_atoi(char *str, int *val);
 int		ft_strcmp(char *s1, char *s2);
 int		is_flag(char *s);
-void	apply_strat(t_stack *a, t_stack *b, t_move_count *moves, t_bench bench);
+void	apply_strat(t_stack *a, t_stack *b, t_move_count *mvs, t_bench *bench);
 int		build_stacks(int nbr_count, char **nbr_str, t_stack **a, t_stack **b);
 int		parser(int argc, char **argv, t_bench *bench, int *first_nbr);
 
@@ -103,6 +103,7 @@ void	rank_stack(t_stack *s);
 int		is_sorted(t_stack *a, t_stack *b);
 
 // algorithms
+void	sort_three(t_stack *a, t_move_count *move_count);
 void	bucket_sort(t_stack *a, t_stack *b, t_move_count *move_count);
 void	rev_insertion_sort(t_stack *a, t_stack *b, t_move_count *move_count);
 void	insertion_sort(t_stack *a, t_stack *b, t_move_count *move_count);
